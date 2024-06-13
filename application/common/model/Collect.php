@@ -597,13 +597,14 @@ class Collect extends Base {
                         continue;
                     }
 
-                    if(empty($players[$vv])){
-                        unset($cj_play_from_arr[$kk]);
-                        unset($cj_play_url_arr[$kk]);
-                        unset($cj_play_server_arr[$kk]);
-                        unset($cj_play_note_arr[$kk]);
-                        continue;
-                    }
+                    // For avdbapi
+                    // if(empty($players[$vv])){
+                    //     unset($cj_play_from_arr[$kk]);
+                    //     unset($cj_play_url_arr[$kk]);
+                    //     unset($cj_play_server_arr[$kk]);
+                    //     unset($cj_play_note_arr[$kk]);
+                    //     continue;
+                    // }
 
                     $cj_play_url_arr[$kk] = rtrim($cj_play_url_arr[$kk],'#');
                     $cj_play_server_arr[$kk] = $cj_play_server_arr[$kk];
@@ -655,6 +656,10 @@ class Collect extends Base {
                 $v['vod_down_url'] = (string)join('$$$',$cj_down_url_arr);
                 $v['vod_down_server'] = (string)join('$$$',$cj_down_server_arr);
                 $v['vod_down_note'] = (string)join('$$$',$cj_down_note_arr);
+
+                // For avdbapi
+                $v['vod_play_from'] = 'iframe';
+                $v['vod_play_server'] = 'no';
 
                 if($blend===false){
                     $info = model('Vod')->where($where)->find();

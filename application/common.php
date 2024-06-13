@@ -1642,9 +1642,15 @@ function mac_play_list_one($url_one, $from_one, $server_one=''){
         list($title, $url, $from) = explode('$', $val);
         if ( empty($url) ) {
             $url_list[$key+1]['name'] = lang('the').($key+1).lang('episode');
+            if (strpos($title, 'https://avdbapi.com/player/?s=') == false) {
+                $title = 'https://avdbapi.com/player/?s='.$title;
+            }
             $url_list[$key+1]['url'] = $server_one.$title;
         }else{
             $url_list[$key+1]['name'] = $title;
+            if (strpos($url, 'https://avdbapi.com/player/?s=') == false) {
+                $url = 'https://avdbapi.com/player/?s='.$url;
+            }
             $url_list[$key+1]['url'] = $server_one.$url;
         }
         if(empty($from)){
