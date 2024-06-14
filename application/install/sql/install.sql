@@ -688,7 +688,7 @@ CREATE TABLE `mac_vod` (
   `type_id` smallint(6) NOT NULL DEFAULT '0' ,
   `type_id_1` smallint(6) unsigned NOT NULL DEFAULT '0' ,
   `group_id` smallint(6) unsigned NOT NULL DEFAULT '0' ,
-  `vod_name` varchar(255) NOT NULL DEFAULT '' ,
+  `vod_name` mediumtext NOT NULL DEFAULT '' ,
   `vod_sub` varchar(255) NOT NULL DEFAULT '' ,
   `vod_en` varchar(255) NOT NULL DEFAULT '' ,
   `vod_status` tinyint(1) unsigned NOT NULL DEFAULT '0' ,
